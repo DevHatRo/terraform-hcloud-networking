@@ -2,7 +2,7 @@ resource "hcloud_primary_ip" "nat_ip4" {
   count = local.create_natgateway ? 1 : 0
 
   name          = "nat-gateway-ipv4"
-  datacenter    = var.datacenter
+  location      = local.location
   type          = "ipv4"
   assignee_type = "server"
   auto_delete   = false
@@ -20,7 +20,7 @@ resource "hcloud_primary_ip" "nat_ipv6" {
   count = local.create_natgateway_ipv6 ? 1 : 0
 
   name          = "nat-gateway-ipv6"
-  datacenter    = var.datacenter
+  location      = local.location
   type          = "ipv6"
   assignee_type = "server"
   auto_delete   = false
@@ -40,7 +40,7 @@ resource "hcloud_server" "nat" {
   name        = "nat-gateway"
   server_type = var.natgateway_server_type
   image       = var.natgateway_image
-  location    = split("-", var.datacenter)[0]
+  location    = local.location
   ssh_keys    = var.natgateway_ssh_key
   user_data   = file("${path.module}/scripts/nat-cloudinit.yaml")
 
