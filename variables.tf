@@ -63,7 +63,7 @@ variable "public_subnet_suffix" {
 }
 
 variable "datacenter" {
-  description = "(Optional, string) The datacenter name to create the server in. nbg1-dc3, fsn1-dc14, hel1-dc2, ash-dc1 or hil-dc1"
+  description = "(Optional, string) The datacenter name to create the server in. nbg1-dc3, fsn1-dc14, hel1-dc2, ash-dc1 or hil-dc1. Only the location part (e.g. nbg1) is used, Hetzner removed datacenters from the API."
   type        = string
   validation {
     condition     = contains(["nbg1-dc3", "fsn1-dc14", "hel1-dc2", "ash-dc1", "hil-dc1"], var.datacenter)

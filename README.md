@@ -20,14 +20,14 @@ module "networking" {
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.0 |
-| <a name="requirement_hcloud"></a> [hcloud](#requirement\_hcloud) | >= 1.38.2 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.0 |
+| <a name="requirement_hcloud"></a> [hcloud](#requirement\_hcloud) | >= 1.58.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_hcloud"></a> [hcloud](#provider\_hcloud) | >= 1.38.2 |
+| <a name="provider_hcloud"></a> [hcloud](#provider\_hcloud) | >= 1.58.0 |
 
 ## Modules
 
@@ -53,7 +53,7 @@ No modules.
 | <a name="input_cidr"></a> [cidr](#input\_cidr) | (Optional) The IPv4 CIDR block for the network. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length` & `ipv4_ipam_pool_id` | `string` | `"0.0.0.0/0"` | no |
 | <a name="input_create_networking"></a> [create\_networking](#input\_create\_networking) | Controls if networking should be created. | `bool` | `true` | no |
 | <a name="input_database_subnets"></a> [database\_subnets](#input\_database\_subnets) | A list of public subnets inside the VPC | `list(string)` | `[]` | no |
-| <a name="input_datacenter"></a> [datacenter](#input\_datacenter) | (Optional, string) The datacenter name to create the server in. nbg1-dc3, fsn1-dc14, hel1-dc2, ash-dc1 or hil-dc1 | `string` | `"nbg1-dc3"` | no |
+| <a name="input_datacenter"></a> [datacenter](#input\_datacenter) | (Optional, string) The datacenter name to create the server in. nbg1-dc3, fsn1-dc14, hel1-dc2, ash-dc1 or hil-dc1. Only the location part (e.g. nbg1) is used, Hetzner removed datacenters from the API. | `string` | `"nbg1-dc3"` | no |
 | <a name="input_delete_protection"></a> [delete\_protection](#input\_delete\_protection) | (Optional, bool) Enable or disable delete protection. Default is false. | `bool` | `false` | no |
 | <a name="input_labels"></a> [labels](#input\_labels) | A map of labels to add to all resources | `map(string)` | `{}` | no |
 | <a name="input_name"></a> [name](#input\_name) | Name to be used on all the resources as identifier | `string` | `""` | no |

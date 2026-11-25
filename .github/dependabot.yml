@@ -1,0 +1,31 @@
+version: 2
+
+# Updates are grouped: one PR per ecosystem for minor+patch, one for majors.
+updates:
+  - package-ecosystem: "terraform"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    groups:
+      terraform-minor-patch:
+        update-types: ["minor", "patch"]
+      terraform-major:
+        update-types: ["major"]
+    commit-message:
+      prefix: "deps"
+      include: "scope"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    groups:
+      actions-minor-patch:
+        update-types: ["minor", "patch"]
+      actions-major:
+        update-types: ["major"]
+    commit-message:
+      prefix: "ci"
+      include: "scope"
